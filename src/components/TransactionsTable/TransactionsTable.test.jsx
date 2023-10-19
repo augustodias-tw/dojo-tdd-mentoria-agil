@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import TransactionsTable from "./TransactionsTable";
+import { moneyFormater } from "../../helpers/MoneyFormater";
 
 describe("TransactionsTable", () => {
   it("should render table headers correctly", () => {
@@ -38,6 +39,6 @@ describe("TransactionsTable", () => {
     expect(screen.getByText(transactions[0].title)).toBeInTheDocument();
     expect(screen.getByText(transactions[0].description)).toBeInTheDocument();
     expect(screen.getByText(transactions[0].status)).toBeInTheDocument();
-    expect(screen.getByText(transactions[0].amount)).toBeInTheDocument();
+    expect(screen.getByText(moneyFormater(transactions[0].amount))).toBeInTheDocument();
   });
 });

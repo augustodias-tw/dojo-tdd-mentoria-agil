@@ -1,3 +1,5 @@
+import { moneyFormater } from "../../helpers/MoneyFormater";
+
 export default function TransactionsTable({ transactions }) {
   return (
     <table className="table table-hover">
@@ -15,7 +17,7 @@ export default function TransactionsTable({ transactions }) {
             <td>{transaction.title}</td>
             <td>{transaction.description}</td>
             <td>{transaction.status}</td>
-            <td>{transaction.amount}</td>
+            <td>{moneyFormater(transaction.amount)}</td>
           </tr>
         ))}
       </tbody>
