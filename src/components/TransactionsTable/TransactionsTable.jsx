@@ -9,7 +9,16 @@ export default function TransactionsTable({ transactions }) {
           <th>Valor</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+        {transactions.map((transaction) => (
+          <tr key={transaction.id}>
+            <td>{transaction.title}</td>
+            <td>{transaction.description}</td>
+            <td>{transaction.status}</td>
+            <td>{transaction.amount}</td>
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 }
